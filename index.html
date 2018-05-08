@@ -15,14 +15,14 @@
                 render:function(){
                     return (
                         <div>
-                            <h2>My first Component!</h2>
-                            <p>This is a simple text ... </p>
+                            <h2>{this.props.name}</h2>
+                            <p>{this.props.use}</p>
                         </div>
                     );
                 }
             });
 
-            ReactDOM.render(<div><ReactComponent /><ReactComponent /><ReactComponent /></div>,document.getElementById('example'));
+            ReactDOM.render(<div><ReactComponent name="Jquery" use="Write less, do more!" /><ReactComponent name="Angularjs" use="Write once use anywhere" /><ReactComponent name="Reactjs" use="Javascript library for ui components"/></div>,document.getElementById('example'));
 
         </script>
   </body>

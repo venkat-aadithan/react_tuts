@@ -10,7 +10,15 @@
         <div id="example"></div>
 
         <script type="text/babel">
-            ReactDOM.render(<h1>React js</h1>,document.getElementById('example'));
+
+            var ReactComponent = React.createClass({
+                render:function(){
+                    return (<h2>My first Component!</h2>);
+                }
+            });
+
+            ReactDOM.render(<ReactComponent />,document.getElementById('example'));
+
         </script>
   </body>
 </html>

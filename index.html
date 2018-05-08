@@ -14,15 +14,22 @@
             var ReactComponent = React.createClass({
                 render:function(){
                     return (
-                        <div>
-                            <h2>{this.props.name}</h2>
-                            <p>{this.props.use}</p>
-                        </div>
+                        <tr>
+                            <td>{this.props.children}</td>
+                            <td><button onClick={this.edit}>Edit</button></td>
+                            <td><button onClick={this.remove}>Remove</button></td>
+                        </tr>
                     );
+                },
+                edit:function(){
+                    alert('edit is clicked');
+                },
+                remove:function(){
+                    alert('remove is clicked');
                 }
             });
 
-            ReactDOM.render(<div><ReactComponent name="Jquery" use="Write less, do more!" /><ReactComponent name="Angularjs" use="Write once use anywhere" /><ReactComponent name="Reactjs" use="Javascript library for ui components"/></div>,document.getElementById('example'));
+            ReactDOM.render(<table><tbody><ReactComponent>Person A</ReactComponent><ReactComponent>Person B</ReactComponent><ReactComponent>Person C</ReactComponent></tbody></table>,document.getElementById('example'));
 
         </script>
   </body>

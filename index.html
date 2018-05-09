@@ -1,36 +1,44 @@
 <html>
-  <head>
-    <!-- dependency: React.js -->
-    <script src="dist/js/react-with-addons.js"></script>
-    <script src="dist/js/react-dom.js"></script>
-    <script src="dist/js/browser.min.js"></script>
+    <head>
+        <!-- dependency: React.js -->
+        <script src="dist/js/react-with-addons.js"></script>
+        <script src="dist/js/react-dom.js"></script>
+        <script src="dist/js/browser.min.js"></script>
 
-  </head>
-  <body>
+    </head>
+    <body>
         <div id="example"></div>
-
         <script type="text/babel">
 
-            var ReactComponent = React.createClass({
-                render:function(){
+            var Checkbox = React.createClass({
+
+                getInitialState : function(){
+                    return {checked:true}
+                },
+
+                handlecheckbox : function(){
+                    this.setState({checked:!this.state.checked});
+                },
+
+                render: function(){
+                    var msg = '';
+                    if(this.state.checked){
+                        msg = 'checked';
+                    } else {
+                        msg = 'unchecked';
+                    }
                     return (
-                        <tr>
-                            <td>{this.props.children}</td>
-                            <td><button onClick={this.edit}>Edit</button></td>
-                            <td><button onClick={this.remove}>Remove</button></td>
-                        </tr>
+                        <div>
+                            <input type="checkbox" onChange={this.handlecheckbox} defaultChecked={this.state.checked}/>
+                            <p>checkbox is {msg}</p>
+                        </div>    
                     );
-                },
-                edit:function(){
-                    alert('edit is clicked');
-                },
-                remove:function(){
-                    alert('remove is clicked');
                 }
             });
-
-            ReactDOM.render(<table><tbody><ReactComponent>Person A</ReactComponent><ReactComponent>Person B</ReactComponent><ReactComponent>Person C</ReactComponent></tbody></table>,document.getElementById('example'));
+            
+            ReactDOM.render(<Checkbox />,document.getElementById('example'));
 
         </script>
-  </body>
+
+    </body>
 </html>
